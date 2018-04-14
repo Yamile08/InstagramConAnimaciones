@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Photo Roll</title>
+		<link rel="stylesheet" href="css/estilos.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+		<style>
+	.tweet-box div {
+		cursor: pointer;
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		margin-top: 22%;
+		margin-left: 13%;
+	}
+	.like {
+		cursor: pointer;
+		/*width: 100px;
+		height: 100px;*/
+		width: 50px;
+		height: 50px;
+		background-image: url('corazon.png');
+		/*background-size: x y;*/
+		background-size: 1450px 50px;
+		/*background: red;*/
+	}
+	.like.is-liked {
+		animation-name: like;
+		/*animation-duration: 800ms;*/
+		animation-duration: .8s;
+		/*2900 / 29 = 100px*/
+		animation-timing-function: steps(28);
+		/*background-position: -2800px 0;*/
+		/*background-position: right;*/
+		animation-fill-mode: forwards;
+	}
+	@keyframes like {
+		0% {
+			background-position: 0 0;
+		}
+		100% {
+			background-position: right;
+			/*background-position: -2800px 0;*/
+		}
+	}
+</style>
+	</head>
+	<body>
+
+
+
+		<div class="container">
+				<header class="">
+					<img src="images/logo.png" alt="">
+				</header>
+			<nav>
+				<ul>
+					<a href=""><li>photo roll</li></a>
+					<a href=""><li>live</li></a>
+					<a href=""><li>Profile</li></a>
+					<a href=""><li>Messages</li></a>
+					<a href=""><li>Bookmarks</li></a>
+					<a href=""><li>Settings</li></a>
+				</ul>
+			</nav>
+			<div class="back">
+				<a href="index.html"><i class="fa fa-arrow-left back-back" aria-hidden="true">   Back</i></a>
+			</div>
+			<div class="container-images">
+				<div class="container-article">
+					<section class="container-photo">
+						<div id="photo" class="photo-photo" style="">
+							<div class="img-photo">
+								<div id="button" class="tweet-box">
+									<div class="like" id="like"></div>
+								</div>
+								<!-- <button class="button"type="button" name="button"></button> -->
+								<!-- <i id="button" class="fa fa-heart-o heart" aria-hidden="true"></i> -->
+							</div>
+							<div class="notification" id="notification"></div>
+							<!-- <img class="img-photo" src="images/img-13.png"alt="" > -->
+						</div>
+					</section>
+					<section class="container-comments">
+						<div class="item-author">
+							<img class="author"src="images/avatar.png" alt="" width="35" height="35">
+							<span>Georgia Gray <p class="subtitle">12:30 PM</p> </span>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+							<h3>#FeelingSpendy #NewYork</h3>
+							<h4>COMMENTS</h4>
+							<div class="">
+								<img class="author"src="images/avatar-2.png" alt="" width="35" height="35"><span>Fanny Barnett <p class="subtitle">Lorem ipsum dolor sit amet.</p> </span>
+							</div>
+							<div class="">
+								<img class="author"src="images/avatar-3.png" alt="" width="35" height="35"><span>Lottie Powers <p class="subtitle">Lorem ipsum dolor sit amet.</p></span>
+							</div>
+							<div class="">
+								<img class="author"src="images/avatar-4.png" alt="" width="35" height="35"><span>Susie George <p class="subtitle">Lorem ipsum dolor.</p></span>
+							</div>
+							<!-- <div class="">
+								<input type="text" name="" value="">
+							</div> -->
+						</div>
+					</section>
+			</div>
+		</div>
+
+		<script>
+    const $button = document.getElementById('button');
+    const $bell = document.getElementById('notification');
+
+		let count = 0
+
+    $button.addEventListener('click', () => {
+			$bell.innerHTML = `${count++} Likes`;
+      $bell.classList.add('show-count');
+      $bell.classList.add('notify');
+    });
+
+    $bell.addEventListener('animationend', ()=> {
+      $bell.classList.remove('notify');
+    });
+  </script>
+	<script>
+	const $like = document.getElementById('like');
+	$like.addEventListener('click', (event)=>{
+		// console.log(event);
+		// $like.classList.add('is-liked');
+		$like.classList.toggle('is-liked');
+	});
+</script>
+	</body>
+</html>
